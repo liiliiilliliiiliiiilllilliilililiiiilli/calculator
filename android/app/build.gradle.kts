@@ -7,7 +7,7 @@ plugins {
 
 android {
 
-	namespace = "com.example.calculator"
+	namespace = "ufo.calculator"
 	compileSdk = flutter.compileSdkVersion
 	ndkVersion = flutter.ndkVersion
 
@@ -20,7 +20,7 @@ android {
 
 	defaultConfig {
 
-		applicationId = "com.example.calculator"
+		applicationId = "ufo.calculator"
 		minSdk = flutter.minSdkVersion
 		targetSdk = flutter.targetSdkVersion
 		versionCode = flutter.versionCode
