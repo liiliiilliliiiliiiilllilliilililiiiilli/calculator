@@ -22,7 +22,9 @@ class Expression extends StatelessWidget {
 
     void calncelAction () {
 
-      text.value = text.value = '';
+      text.value = '';
+
+      justResoulted.value = false;
 
     }
 
@@ -33,11 +35,15 @@ class Expression extends StatelessWidget {
 
         text.value = '';
 
-        justResoulted.value = false;
+      }
+
+      else {
+
+        text.value = text.value.substring (0, text.value.length - 1);
 
       }
 
-      text.value = text.value.substring (0, text.value.length - 1);
+      justResoulted.value = false;
 
     }
 
@@ -56,8 +62,8 @@ class Expression extends StatelessWidget {
         ),
         child: Padding (
           padding: const EdgeInsets.symmetric (
-            horizontal: 14,
-            vertical: 7
+            vertical: 7,
+            horizontal: 14
           ),
           child: Row (
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -78,7 +84,7 @@ class Expression extends StatelessWidget {
                   )
                 )
               ),
-              Expanded(
+              Expanded (
                 child: Text (
                   text.value,
                   textAlign: TextAlign.end,

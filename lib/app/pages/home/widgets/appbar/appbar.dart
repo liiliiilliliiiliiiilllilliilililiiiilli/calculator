@@ -1,12 +1,12 @@
 // Home page - AppBar
 
-import 'package:calculator/app/providers/theme/theme.dart';
-import 'package:calculator/app/theme/icons/icons.dart';
 import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:calculator/app/providers/theme/theme.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:calculator/app/theme/icons/icons.dart';
 import 'package:calculator/app/theme/colors/colors.dart';
 import 'package:calculator/app/localization/generated/l10n.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 
 
@@ -15,7 +15,11 @@ class AppBarComponent extends HookConsumerWidget implements PreferredSizeWidget 
   const AppBarComponent ({super.key,});
 
 
-  @override Size get preferredSize => const Size.fromHeight (kToolbarHeight + 10);
+  @override Size get preferredSize {
+
+    return (const Size.fromHeight (kToolbarHeight + 10));
+
+  }
 
 
   @override Widget build (BuildContext context, WidgetRef ref) {
@@ -29,9 +33,9 @@ class AppBarComponent extends HookConsumerWidget implements PreferredSizeWidget 
       : context.icons.moon;
 
 
-    void switchTheme () {
+    void handlePress () {
 
-      themeNotifier.changeState (themeState == AppThemeOption.dark ? AppThemeOption.light : AppThemeOption.dark);
+      themeNotifier.switchTheme ();
 
     }
 
@@ -57,7 +61,7 @@ class AppBarComponent extends HookConsumerWidget implements PreferredSizeWidget 
               top: 8
             ),
             child: ElevatedButton (
-              onPressed: switchTheme,
+              onPressed: handlePress,
               style: ElevatedButton.styleFrom (
                 shape: const CircleBorder (),
                 backgroundColor: context.colors.buttonBack

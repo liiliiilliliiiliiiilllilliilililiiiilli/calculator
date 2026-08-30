@@ -1,4 +1,4 @@
-// State providers - Theme
+// Theme provider
 
 import 'dart:ui';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -7,7 +7,7 @@ import 'package:calculator/app/theme/colors/colors.dart';
 
 
 
-const AppThemeOption defaultTheme = AppThemeOption.dark;
+const AppThemeOption defaultState = AppThemeOption.dark;
 
 
 
@@ -19,10 +19,10 @@ class ThemeNotifier extends Notifier <AppThemeOption> {
 
   @override AppThemeOption build () {
 
-    initState ();
+    initiate ();
 
 
-    return (defaultTheme);
+    return (defaultState);
 
   }
 
@@ -85,7 +85,7 @@ class ThemeNotifier extends Notifier <AppThemeOption> {
   }
 
 
-  Future <void> initState () async {
+  Future <void> initiate () async {
 
     final AppThemeOption? savedTheme = await getSavedTheme ();
 
@@ -109,7 +109,20 @@ class ThemeNotifier extends Notifier <AppThemeOption> {
   }
 
 
-  Future <void> changeState (AppThemeOption theme) async {
+  Future <void> changeTheme (AppThemeOption theme) async {
+
+    state = theme;
+
+    await saveTheme (theme);
+
+  }
+
+
+  Future <void> switchTheme () async {
+
+    final theme = state == AppThemeOption.dark
+      ? AppThemeOption.light
+      : AppThemeOption.dark;
 
     state = theme;
 

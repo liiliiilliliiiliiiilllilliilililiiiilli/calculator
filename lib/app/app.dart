@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:calculator/app/providers/locale/locale.dart';
 import 'package:calculator/app/providers/theme/theme.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:calculator/app/localization/generated/l10n.dart';
 import 'package:calculator/app/theme/icons/icons.dart';
 import 'package:calculator/app/theme/colors/colors.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:calculator/app/localization/generated/l10n.dart';
 import 'pages/home/home.dart';
 
 
@@ -57,14 +57,6 @@ class App extends ConsumerWidget {
       MaterialApp (
         debugShowCheckedModeBanner: false,
         title: 'Calculator',
-        localizationsDelegates: const [
-            T.delegate,
-            GlobalMaterialLocalizations.delegate,
-            GlobalWidgetsLocalizations.delegate,
-            GlobalCupertinoLocalizations.delegate
-        ],
-        supportedLocales: T.delegate.supportedLocales,
-        locale: Locale (localeState),
         theme: ThemeData (
           pageTransitionsTheme: PageTransitionsTheme (
             builders: {
@@ -79,6 +71,14 @@ class App extends ConsumerWidget {
             customColors
           ]
         ),
+        localizationsDelegates: const [
+            T.delegate,
+            GlobalMaterialLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate
+        ],
+        supportedLocales: T.delegate.supportedLocales,
+        locale: Locale (localeState),
         routes: {
           '/home': (context) => const Home ()
         },

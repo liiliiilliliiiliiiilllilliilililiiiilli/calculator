@@ -2,8 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:calculator/app/pages/home/widgets/appbar/appbar.dart';
-import 'package:calculator/app/pages/home/widgets/body/body.dart';
+import 'widgets/appbar/appbar.dart';
+import 'widgets/body/body.dart';
 
 
 

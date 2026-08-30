@@ -7,7 +7,7 @@ import 'package:calculator/app/localization/generated/l10n.dart';
 
 
 
-const String defaultLocale = 'en';
+const String defaultState = 'en';
 
 
 
@@ -19,10 +19,10 @@ class LocaleNotifier extends Notifier <String> {
 
   @override String build () {
 
-    initState ();
+    initiate ();
 
 
-    return (defaultLocale);
+    return (defaultState);
 
   }
 
@@ -50,7 +50,7 @@ class LocaleNotifier extends Notifier <String> {
   }
 
 
-  Future <void> initState () async {
+  Future <void> initiate () async {
 
     final SharedPreferences preferences = await SharedPreferences.getInstance ();
 
@@ -78,7 +78,7 @@ class LocaleNotifier extends Notifier <String> {
   }
 
 
-  Future <void> changeState (String locale) async {
+  Future <void> changeLocale (String locale) async {
 
     await T.load (Locale (locale));
 

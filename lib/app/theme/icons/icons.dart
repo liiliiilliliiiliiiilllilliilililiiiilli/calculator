@@ -6,37 +6,37 @@ import 'package:flutter/material.dart';
 
 class AppAssets extends ThemeExtension <AppAssets> {
 
-  final String sun;
   final String moon;
+  final String sun;
 
 
   const AppAssets ({
-    required this.sun,
-    required this.moon
+    required this.moon,
+    required this.sun
   });
 
 
   static const AppAssets dark = AppAssets (
-    sun: 'assets/images/icons/common/sun.svg',
-    moon: 'assets/images/icons/common/moon.svg'
+    moon: 'assets/images/icons/common/moon.svg',
+    sun: 'assets/images/icons/common/sun.svg'
   );
 
   static const AppAssets light = AppAssets (
-    sun: 'assets/images/icons/common/sun.svg',
-    moon: 'assets/images/icons/common/moon.svg'
+    moon: 'assets/images/icons/common/moon.svg',
+    sun: 'assets/images/icons/common/sun.svg'
   );
 
 
   @override AppAssets copyWith ({
-    String? sun,
-    String? moon
+    String? moon,
+    String? sun
   }) {
 
     return (
 
       AppAssets (
-        sun: sun ?? this.sun,
-        moon: moon ?? this.moon
+        moon: moon ?? this.moon,
+        sun: sun ?? this.sun
       )
 
     );

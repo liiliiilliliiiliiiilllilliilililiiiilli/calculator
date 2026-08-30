@@ -29,9 +29,11 @@ class BodyComponent extends HookWidget {
             text: expression,
             justResoulted: justResoulted
           ),
-          Inputer (
-            expression: expression,
-            justResoulted: justResoulted
+          Expanded (
+            child: Inputer (
+              expression: expression,
+              justResoulted: justResoulted
+            )
           )
         ]
       )

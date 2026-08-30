@@ -15,55 +15,55 @@ enum AppThemeOption {
 
 class AppColors extends ThemeExtension <AppColors> {
 
-  final Color buttonText;
-  final Color buttonBack;
-  final Color inputerBack;
-  final Color expressionBack;
   final Color blockBorder;
+  final Color buttonBack;
+  final Color buttonText;
+  final Color expressionBack;
+  final Color inputerBack;
 
 
   const AppColors ({
-    required this.buttonText,
+    required this.blockBorder,
     required this.buttonBack,
-    required this.inputerBack,
+    required this.buttonText,
     required this.expressionBack,
-    required this.blockBorder
+    required this.inputerBack
   });
 
 
   static const AppColors dark = AppColors (
+    blockBorder: Color (0xff202020),
+    buttonBack: Color (0xff2b2b2b),
     buttonText: Color (0xfff2f2f2),
-    buttonBack: Color.fromARGB(255, 43, 43, 43),
-    inputerBack: Color.fromARGB (32, 64, 64, 64),
-    expressionBack: Color.fromARGB (32, 32, 32, 32),
-    blockBorder: Color (0xff202020)
+    expressionBack: Color (0x20202020),
+    inputerBack: Color (0x20404040)
   );
 
   static const AppColors light = AppColors (
+    blockBorder: Color (0xffb4b4b4),
+    buttonBack: Color (0xffe6e6e6),
     buttonText: Color (0xff000000),
-    buttonBack: Color.fromARGB(255, 230, 230, 230),
-    inputerBack: Color.fromARGB (32, 64, 64, 64),
-    expressionBack: Color.fromARGB (32, 32, 32, 32),
-    blockBorder: Color.fromARGB(255, 180, 180, 180)
+    expressionBack: Color (0x20202020),
+    inputerBack: Color (0x20404040)
   );
 
 
   @override AppColors copyWith ({
-    Color? buttonText,
+    Color? blockBorder,
     Color? buttonBack,
-    Color? inputerBack,
+    Color? buttonText,
     Color? expressionBack,
-    Color? blockBorder
+    Color? inputerBack
   }) {
 
     return (
 
       AppColors (
-        buttonText: buttonText ?? this.buttonText,
+        blockBorder: blockBorder ?? this.blockBorder,
         buttonBack: buttonBack ?? this.buttonBack,
-        inputerBack: inputerBack ?? this.inputerBack,
+        buttonText: buttonText ?? this.buttonText,
         expressionBack: expressionBack ?? this.expressionBack,
-        blockBorder: blockBorder ?? this.blockBorder
+        inputerBack: inputerBack ?? this.inputerBack
       )
 
     );
@@ -82,11 +82,11 @@ class AppColors extends ThemeExtension <AppColors> {
     return (
 
       AppColors (
-        buttonText: Color.lerp (buttonText, other.buttonText, t) ?? buttonText,
+        blockBorder: Color.lerp (blockBorder, other.blockBorder, t) ?? blockBorder,
         buttonBack: Color.lerp (buttonBack, other.buttonBack, t) ?? buttonBack,
-        inputerBack: Color.lerp (inputerBack, other.inputerBack, t) ?? inputerBack,
+        buttonText: Color.lerp (buttonText, other.buttonText, t) ?? buttonText,
         expressionBack: Color.lerp (expressionBack, other.expressionBack, t) ?? expressionBack,
-        blockBorder: Color.lerp (blockBorder, other.blockBorder, t) ?? blockBorder
+        inputerBack: Color.lerp (inputerBack, other.inputerBack, t) ?? inputerBack
       )
 
     );
