@@ -1,3 +1,11 @@
+import java.util.Properties
+
+val keystoreProperties = Properties()
+val keystorePropertiesFile = rootProject.file("key.properties")
+if (keystorePropertiesFile.exists()) {
+    keystoreProperties.load(keystorePropertiesFile.inputStream())
+}
+
 plugins {
 
 	id ("com.android.application")
@@ -28,15 +36,24 @@ android {
 
 	}
 
-	buildTypes {
+    signingConfigs {
+        create("release") {
+            keyAlias = keystoreProperties["keyAlias"] as String?
+            keyPassword = keystoreProperties["keyPassword"] as String?
+            storeFile = (keystoreProperties["storeFile"] as String?)?.let { file(it) }
+            storePassword = keystoreProperties["storePassword"] as String?
+        }
+    }
 
-		release {
+    buildTypes {
+        getByName("release") {
+            // Указываем использовать нашу конфигурацию подписи release
+            signingConfig = signingConfigs.getByName("release")
 
-			signingConfig = signingConfigs.getByName ("debug")
-
-		}
-
-	}
+            isMinifyEnabled = false
+            isShrinkResources = false
+        }
+    }
 
 }
 
