@@ -2,7 +2,7 @@
 
 name: calculator
 description: 'Just a calculator'
-version: 0.0.0+1
+version: 0.0.0+3
 publish_to: none
 
 environment:
@@ -59,14 +59,10 @@ flutter_native_splash:
   android: true
   image: assets/images/logo/light/logo.png
   image_dark: assets/images/logo/dark/logo.png
-  # branding: assets/images/branding/light/branding.png
-  # branding_dark: assets/images/branding/dark/branding.png
   color: '#f2f2f2'
   color_dark: '#070707'
   android_12:
     image: assets/images/logo/light/logo.png
     image_dark: assets/images/logo/dark/logo.png
-    # branding: assets/images/branding/light/branding.png
-    # branding_dark: assets/images/branding/dark/branding.png
     icon_background_color: '#f2f2f2'
     icon_background_color_dark: '#070707'
